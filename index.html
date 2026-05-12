@@ -89,8 +89,48 @@
         
 <div style="display: flex; justify-content: center; background-image: url('sua-imagem-de-fundo.jpg'); padding: 50px; ">
     <a href="loop.html" class="apple-button-glass">Compre um site igual agora</a>
-
 </div><section id="ai-section" class="ai-experience">
+    <section class="portfolio-grid">
+    <div class="partners-header">
+        <span class="ai-badge">Estúdios e sites Web</span>
+        <h3>Parceiros</h3><br>
+    </div>
+
+    <div class="apple-shelf">
+        
+        <div class="product-card-static">
+            <div class="img-wrapper">
+                <img src="watts.jpeg" alt="Empresa 1">
+            </div>
+        </div>
+        <div class="product-card-static">
+            <span class="promo-badge">PROJETO</span>
+            <div class="img-wrapper">
+                <img src="https://media.base44.com/images/public/69ded49886a4193ee99f263a/a1118ea88_53897f906_logo.png" alt="Empresa 2">
+            </div>
+        </div>
+        <div class="product-card-static">
+            <div class="img-wrapper">
+                <img src="icone sebo .png" alt="Empresa 3">
+            </div>
+        </div>
+        <div class="product-card-static">
+            <div class="img-wrapper">
+                <img src="logo principal.png" alt="Empresa 4">
+            </div>
+        </div>
+        <div class="product-card-static">
+            <div class="img-wrapper">
+                <img src="https://media.base44.com/images/public/69f15caeffdd7da6f1d38adf/432562a0c_logo.png" alt="Empresa 5">
+            </div>
+        </div>
+        <div class="product-card-static">
+            <div class="img-wrapper">
+                <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6938a671fb87fe8becaa82f1/6b0b250c2_Imagem13-01-2026as2337.JPG" alt="Empresa 6">
+            </div>
+        </div>
+    </div>
+</section>
     <div class="ai-container">
         <div class="ai-header">
             <span class="ai-badge">Loop Intelligence</span>
@@ -193,9 +233,26 @@
 </footer>
 
 
-   
+<script>
+fetch("http://100.67.184.109:3000/visita", {
+  method: "POST"
+});
+</script>   
+<script>
+if (!sessionStorage.getItem("visita_enviada")) {
+  fetch("http://127.0.0.1:3000/visita", {
+    method: "POST"
+  });
 
-    <script src="ai-integration.js"></script>
+  sessionStorage.setItem("visita_enviada", "1");
+}
+</script>
+    <script>
+fetch("http://100.67.184.109:80/visita", {
+  method: "POST"
+});
+</script>
+<script src="s"></script>
 </body>
 <div class="edge-glow"></div>
 </html>
