@@ -231,28 +231,6 @@
         </div>
     </div>
 </footer>
-
-
-<script>
-fetch("http://100.67.184.109:3000/visita", {
-  method: "POST"
-});
-</script>   
-<script>
-if (!sessionStorage.getItem("visita_enviada")) {
-  fetch("http://127.0.0.1:3000/visita", {
-    method: "POST"
-  });
-
-  sessionStorage.setItem("visita_enviada", "1");
-}
-</script>
-    <script>
-fetch("http://100.67.184.109:80/visita", {
-  method: "POST"
-});
-</script>
-<script src="s"></script>
 </body>
 <div class="edge-glow"></div>
 </html>
