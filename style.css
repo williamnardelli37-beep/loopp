@@ -8,8 +8,8 @@
 
 :root {
     --apple-bg: #fbfbfd;
-    --apple-text: #1d1d1f;
-    --apple-gray: #6e6e73;
+    --apple-text: #222222;
+    --apple-gray: #000000;
     --accent-blue: #0071e3;
     --glass-bg: rgba(255, 255, 255, 0.45);
     --glass-border: rgba(255, 255, 255, 0.6);
@@ -43,7 +43,8 @@ body {
     width: 100%;
     overflow-x: hidden;
     font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--apple-bg);
+    background: #2898de;
+    background: linear-gradient(90deg, rgba(40, 152, 222, 1) 0%, rgba(33, 162, 209, 1) 35%, rgba(47, 118, 250, 1) 51%, rgba(0, 212, 255, 1) 100%);
     color: var(--apple-text);
     line-height: 1.47;
     letter-spacing: -0.018em;
@@ -169,23 +170,56 @@ body {
 }
 
 .imagens {
-    background: transparent; /* Removido o preto */
+    background: transparent;
     padding: 30px 24px;
     display: flex;
     justify-content: center;
     box-shadow: 0 10px 20px rgba(11, 133, 255, 0.76);
+    position: relative;
+    overflow: hidden; /* Garante que a luz não saia do container */
+}
+
+/* O container invisível para o raio de luz */
+.imagens::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%; /* Começa fora da tela */
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(11, 133, 255, 0.8) 50%, /* Luz azul neon */
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg); /* Inclina o feixe de luz */
+    animation: showDeLuzes 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .imagens img {
     max-width: 95%;
-    width: 1000px;
+    width: 1024px;
     border-radius: 22px;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 30px 70px rgba(0,0,0,0.08); /* Sombra mais leve para fundo claro */
+    box-shadow: 0 30px 70px rgba(0,0,0,0.08);
 }
 
-.imagens img:hover { transform: scale(1.02); }
+.imagens img:hover { 
+    transform: scale(1.02); 
+}
 
+/* Animação que faz a luz cruzar a tela uma vez no lançamento */
+@keyframes showDeLuzes {
+    0% {
+        left: -50%;
+        opacity: 1;
+    }
+    100% {
+        left: 150%;
+        opacity: 0; /* Some no final */
+    }
+}
 /* 5. SEÇÃO IA */
 .ai-experience {
     padding: 100px 24px;
