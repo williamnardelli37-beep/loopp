@@ -1,0 +1,232 @@
+/* ==========================================
+   1. PLANO DE FUNDO (Gradiente Blindado Exato)
+   ========================================== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Bloqueia o scroll horizontal indesejado */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: "Doto", sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: linear-gradient(
+    to right,
+    /* --- METADE ESQUERDA --- */
+    #112229 0%, #112229 3.84%,       
+    #2a3235 3.84%, #2a3235 7.69%,     
+    #4a443f 7.69%, #4a443f 11.53%,    
+    #69564c 11.53%, #69564c 15.38%,   
+    #886a5a 15.38%, #886a5a 19.23%,   
+    #a67e6c 19.23%, #a67e6c 23.07%,   
+    #be927e 23.07%, #be927e 26.92%,   
+    #cca28e 26.92%, #cca28e 30.76%,   
+    #d1aba1 30.76%, #d1aba1 34.61%,   
+    #cca59c 34.61%, #cca59c 38.46%,   
+    #be9a92 38.46%, #be9a92 42.30%,   
+    #ab8e87 42.30%, #ab8e87 46.15%,   
+    #98847e 46.15%, #98847e 50%,      
+    /* --- METADE DIREITA --- */
+    #8c8681 50%, #8c8681 53.84%,      
+    #7d8983 53.84%, #7d8983 57.69%,   
+    #6d8a83 57.69%, #6d8a83 61.53%,   
+    #5c8a82 61.53%, #5c8a82 65.38%,   
+    #4a8781 65.38%, #4a8781 69.23%,   
+    #3c817f 69.23%, #3c817f 73.07%,   
+    #2c7a7b 73.07%, #2c7a7b 76.92%,   
+    #1b7175 76.92%, #1b7175 80.76%,   
+    #0f676c 80.76%, #0f676c 84.61%,   
+    #025b61 84.61%, #025b61 88.46%,   
+    #004f54 88.46%, #004f54 92.30%,   
+    #004146 92.30%, #004146 96.15%,   
+    #013136 96.15%, #013136 100%      
+  );
+}
+
+/* ==========================================
+   2. BOTÃO VOLTAR (Fiel ao Original)
+   ========================================== */
+.button {
+  background-color: #4a443f; 
+  color: #ffffff;            
+  width: 110px;  
+  height: 40px; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+  padding-left: 14px;
+  margin-top: 60px; /* Alinhado com o recuo do teu .name */
+  margin-left: 70px; /* Alinhado com o recuo do teu .name */
+  font-family: "Doto", sans-serif;
+  transition: background-color 0.5s, transform 0.4s;
+}
+
+.svgIcon {
+  height: 18px; 
+  fill: white;
+  transition-duration: 0.5s;
+}
+
+.button:hover {
+  background-color: #cca28e; 
+  color: #4a443f;
+}
+
+.button:hover .svgIcon {
+  fill: #4a443f;
+  transform: translateX(-3px);
+}
+
+/* ==========================================
+   3. CAIXA DE CONTATO (Container Glassmorphism)
+   ========================================== */
+.contact-container {
+  max-width: 600px;
+  margin: 40px auto 80px auto;
+  padding: 40px;
+  background-color: rgba(74, 68, 63, 0.85); /* Tom marrom escuro sofisticado */
+  backdrop-filter: blur(10px); /* Efeito de vidro desfocado */
+  border-radius: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(204, 162, 142, 0.2);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.contact-title {
+  font-size: 38px;
+  font-weight: bold;
+  color: #fafafa;
+  margin: 0 0 10px 0;
+}
+
+.contact-subtitle {
+  font-size: 16px;
+  color: #cca28e; /* Cor Areia Rosada suave */
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================
+   4. FORMULÁRIO E INPUTS REFLEXIVOS
+   ========================================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  color: #fafafa;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(204, 162, 142, 0.3);
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+/* Efeito Glow Inteligente ao focar nos campos */
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: #cca28e;
+  background-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 12px rgba(204, 162, 142, 0.3);
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ==========================================
+   5. BOTÃO DE ENVIO PREMIUM
+   ========================================== */
+.submit-btn {
+  background-color: #cca28e;
+  color: #4a443f;
+  padding: 16px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Doto", sans-serif;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submit-btn:hover {
+  background-color: #fafafa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(204, 162, 142, 0.45);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================================
+   6. RESPONSIVIDADE (Ajustes para Telemóvel)
+   ========================================== */
+@media (max-width: 768px) {
+  .button {
+    margin-top: 30px;
+    margin-left: 20px; /* Reduz margem no telemóvel para não sumir da tela */
+  }
+
+  .contact-container {
+    margin: 20px 15px 60px 15px; /* Margem de segurança para as bordas do telemóvel */
+    padding: 30px 20px;
+    border-radius: 24px;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+  .contact-subtitle {
+    font-size: 14px;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+}

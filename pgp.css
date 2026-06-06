@@ -1,0 +1,230 @@
+/* ==========================================
+   1. CONFIGURAÇÕES GERAIS E PLANO DE FUNDO (BLINDADO)
+   ========================================== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Trava o scroll horizontal no iPhone, Mac e qualquer outro dispositivo */
+  overflow-x: hidden; 
+  /* Suaviza fontes em telas Retina da Apple */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: linear-gradient(
+    to right,
+    /* Metade Esquerda */
+    #112229 0%, #112229 3.84%,       
+    #2a3235 3.84%, #2a3235 7.69%,     
+    #4a443f 7.69%, #4a443f 11.53%,    
+    #69564c 11.53%, #69564c 15.38%,   
+    #886a5a 15.38%, #886a5a 19.23%,   
+    #a67e6c 19.23%, #a67e6c 23.07%,   
+    #be927e 23.07%, #be927e 26.92%,   
+    #cca28e 26.92%, #cca28e 30.76%,   
+    #d1aba1 30.76%, #d1aba1 34.61%,   
+    #cca59c 34.61%, #cca59c 38.46%,   
+    #be9a92 38.46%, #be9a92 42.30%,   
+    #ab8e87 42.30%, #ab8e87 46.15%,   
+    #98847e 46.15%, #98847e 50%,      
+    /* Metade Direita */
+    #8c8681 50%, #8c8681 53.84%,      
+    #7d8983 53.84%, #7d8983 57.69%,   
+    #6d8a83 57.69%, #6d8a83 61.53%,   
+    #5c8a82 61.53%, #5c8a82 65.38%,   
+    #4a8781 65.38%, #4a8781 69.23%,   
+    #3c817f 69.23%, #3c817f 73.07%,   
+    #2c7a7b 73.07%, #2c7a7b 76.92%,   
+    #1b7175 76.92%, #1b7175 80.76%,   
+    #0f676c 80.76%, #0f676c 84.61%,   
+    #025b61 84.61%, #025b61 88.46%,   
+    #004f54 88.46%, #004f54 92.30%,   
+    #004146 92.30%, #004146 96.15%,   
+    #013136 96.15%, #013136 100%      
+  );
+}
+
+/* ==========================================
+   2. TIPOGRAFIA E TEXTOS (RESPONSIVOS)
+   ========================================== */
+h1 {
+  text-align: center;
+  margin: 40px 20px;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  color: #ffffff;
+  font-size: calc(1.8rem + 1.5vw); /* Diminui no celular e cresce em telas grandes */
+}
+
+h3 {
+  margin-left: 5%; /* Uso de porcentagem impede que saia da tela no iPhone */
+  margin-top: 40px;
+  font-size: calc(1.4rem + 0.8vw);
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  color: #ffffff;
+}
+
+.text {
+  border: solid #cca28e 2px; /* Mantido o tom refinado do site */
+  border-radius: 20px;
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.22); 
+  padding: 15px;
+  color: white;
+  margin: 20px 5%; /* Margens elásticas nas laterais */
+  max-width: 90%;  /* Não deixa estourar a tela do celular */
+}
+
+/* ==========================================
+   3. BOTÃO SINO (.button)
+   ========================================== */
+.button {
+  background-color: #4a443f; 
+  color: #ffffff;            
+  width: 110px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border-radius: 30px;
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+  padding-left: 8px;
+  margin-top: 30px;
+  margin-left: 55px;
+  font-family: "Doto", sans-serif;
+  font-optical-sizing: auto;
+  transition: background-color 0.5s, transform 0.4s, cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.svgIcon {
+  height: 25px;
+  transition-duration: 1.5s;
+}
+
+.bell path {
+  fill: rgb(19, 19, 19);
+}
+
+.button:hover {
+  background-color: #cca28e; /* Ajustado para bater com seu padrão pastel */
+  color: #4a443f;
+  transition-duration: .7s;
+}
+
+.button:hover .bell path {
+  fill: #4a443f;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+.button:hover .svgIcon {
+  transform: rotate(15deg); /* Movimento pendular suave em vez de girar 250º */
+  transition-duration: 0.5s;
+}
+
+/* ==========================================
+   4. BOTÃO NEUMÓRFICO CORRIGIDO (.neu-button)
+   ========================================== */
+.neu-button {
+  background-color: #886a5a; /* Tonalidade quente extraída da sua paleta */
+  border-radius: 50px;
+  box-shadow: inset 4px 4px 10px #69564c, inset -4px -4px 10px #a67e6c;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 35px;
+  border: none;
+  font-family: inherit;
+  margin-left: 55px;
+  margin-top: 20px;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.neu-button:hover {
+  box-shadow: inset 2px 2px 5px #69564c, inset -2px -2px 5px #a67e6c, 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.neu-button:focus {
+  outline: none;
+}
+
+/* ==========================================
+   5. BOTÃO DESLIZANTE (.cssbuttons-io-button)
+   ========================================== */
+.cssbuttons-io-button {
+  background: #4a443f; 
+  color: #cca28e;      
+  box-shadow: inset 0 0 1.6em -0.6em #2a2624; 
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 0.9em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 2.8em;
+  padding-right: 3.3em;
+  cursor: pointer;
+  margin-left: 55px;
+  margin-top: 20px;
+  max-width: calc(100% - 110px); /* Garante que caiba em telas muito estreitas */
+}
+
+.cssbuttons-io-button .icon {
+  background: #cca28e; /* Unificado com o salmão clássico do projeto */
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  box-shadow: 0.1em 0.1em 0.6em rgba(0, 0, 0, 0.25);
+  right: 0.3em;
+  transition: all 0.3s;
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.3s;
+  color: #4a443f;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+  transform: scale(0.95);
+}

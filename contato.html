@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <link rel="shortcut icon" href="loop web.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | William Nardelli</title>
+  <link rel="stylesheet" href="contato.css">
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <button class="button" onclick="window.history.back()">
+    <svg class="svgIcon" viewBox="0 0 448 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H109.2l105.4-105.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+    </svg>
+    <span>Voltar</span>
+  </button>
+
+  <div class="contact-container">
+    <div class="contact-header">
+      <h1 class="contact-title">Vamos Conversar?</h1>
+      <p class="contact-subtitle">Entre em contato para parcerias, projetos ou para trocarmos uma ideia.</p>
+    </div>
+
+    <form class="contact-form" id="whatsappForm">
+      <div class="input-group">
+        <label for="name">Nome</label>
+        <input type="text" id="name" required placeholder="Teu nome completo">
+      </div>
+
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" required placeholder="teu.email@exemplo.com">
+      </div>
+
+      <div class="input-group">
+        <label for="message">Mensagem</label>
+        <textarea id="message" rows="5" required placeholder="Escreve a tua mensagem aqui..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Enviar via WhatsApp
+      </button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Impede o recarregamento da página
+
+      // Captura os valores digitados pelo utilizador
+      const nome = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const mensagem = document.getElementById('message').value;
+
+      // O teu número configurado
+      const numeroWhats = "5554993243670";
+
+      // Formata o texto com negritos (*) e quebras de linha (%0A)
+      const textoMensagem = `Olá! Meu nome é ${nome} E-mail: ${email}-->Mensagem:${mensagem}`;
+
+      // Monta o link final da API do WhatsApp
+      const linkZap = `https://api.whatsapp.com/send?phone=${numeroWhats}&text=${encodeURIComponent(textoMensagem)}`;
+
+      // Abre o chat numa nova aba de forma segura
+      window.open(linkZap, '_blank');
+    });
+  </script>
+
+</body>
+</html>
